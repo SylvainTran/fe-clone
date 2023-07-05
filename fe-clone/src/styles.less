@@ -1,4 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./configs/global/sizes.less";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    width: calc(@tile-width * @tile-scale-100);
+    height: calc(@tile-height * @tile-scale-100);
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,37 @@
+@import '../../configs/global/colors.less';
+@import '../../configs/global/sizes.less';
+@import '../../configs/native/flexbox.less';
+
+.base-map-tile {
+    width: @tile-width;
+    height: @tile-height;
+}
+
+.base-map-tile:hover {
+    background-color: @tile-bg-color-selected;
+}
+
+// Cursors
+.is-cursor-pointer {
+    cursor: pointer; 
+}
+
+.is-bordered {
+    border: @border-size;
+}
+
+.is-border-dashed {
+    border-style: dashed;
+}
+
+.is-border-black {
+    border-color: black;
+}
+
+.is-default-map-border {
+    .is-bordered();
+    .is-border-dashed();
+    .is-border-black();
+    .is-flex-display-centered();
+    background-color: @primary-tile-bg-color;
+}

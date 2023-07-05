@@ -1,0 +1,7 @@
+<mat-grid-list cols="{{ colsLen }}" rowHeight="{{ colRowRatio }}">
+    <mat-grid-tile
+        class="is-default-map-border base-map-tile is-cursor-pointer"
+        *ngFor="let row of rowsArray"
+        >{{ row }}
+    </mat-grid-tile>
+</mat-grid-list>
