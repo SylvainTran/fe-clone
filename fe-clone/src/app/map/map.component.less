@@ -1,6 +1,8 @@
 @import '../../configs/global/colors.less';
 @import '../../configs/global/sizes.less';
 @import '../../configs/native/flexbox.less';
+@import '../../configs/common/borders.less';
+@import '../../configs/common/cursors.less';
 
 .base-map-tile {
     width: @tile-width;
@@ -9,23 +11,6 @@
 
 .base-map-tile:hover {
     background-color: @tile-bg-color-selected;
-}
-
-// Cursors
-.is-cursor-pointer {
-    cursor: pointer; 
-}
-
-.is-bordered {
-    border: @border-size;
-}
-
-.is-border-dashed {
-    border-style: dashed;
-}
-
-.is-border-black {
-    border-color: black;
 }
 
 .is-default-map-border {
