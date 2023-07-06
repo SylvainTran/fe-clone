@@ -1,7 +1,9 @@
 <mat-grid-list cols="{{ colsLen }}" rowHeight="{{ colRowRatio }}">
     <mat-grid-tile
+        (click)="setActiveTile($event)"
         class="is-default-map-border base-map-tile is-cursor-pointer"
-        *ngFor="let row of rowsArray"
+        *ngFor="let row of rowsArray; index as i"
+        id="tile-{{ i }}"
         >{{ row }}
     </mat-grid-tile>
 </mat-grid-list>

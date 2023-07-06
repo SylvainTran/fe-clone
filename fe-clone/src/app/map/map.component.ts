@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
     selector: 'fe-clone-map',
@@ -9,20 +10,32 @@ import { MatGridListModule } from '@angular/material/grid-list';
     standalone: true,
     imports: [MatGridListModule, CommonModule],
 })
-export class MapComponent {
+export class MapComponent implements OnInit {
     // TODO: move these into config.yaml
-    readonly colsLen: number = 32;
-    readonly rowsLen: number = 32;
-    readonly rowsArray: any[] = [];
-    readonly colRowRatio: string = '1:1';
+    colsLen: number = 32;
+    rowsLen: number = 32;
+    tileSize: number = 100;
+    colRowRatio: string = '1:1';
+    rowsArray: any[] = [];
+    activeTile: HTMLElement | null = null;
 
-    constructor() {
-        for (let i = 0; i < 32 * 100; i++) {
-            this.rowsArray.push('');
-        }
+    ngOnInit(): void {
+      this.initTileData();
     }
 
-    public setActiveTile(evt?: Event): void {
-        console.log(evt?.target);
+    public initTileData(): void {
+      this.rowsArray = [...this.generateTileData()];
+    }
+
+    public generateTileData(input: any = []): any[] {
+      let output: any = [...input];
+      for (let i = 0; i < this.colsLen * this.tileSize; i++) {
+        output.push('');
+      }
+      return output;
+    }
+
+    public setActiveTile($event: MouseEvent): void {
+      this.activeTile = $event.currentTarget as HTMLElement;
     }
 }
